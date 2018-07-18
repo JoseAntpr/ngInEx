@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore } from 'angularfire2/firestore';
 import { Router } from '@angular/router';
 
 import * as firebase from 'firebase';
@@ -7,6 +8,8 @@ import * as firebase from 'firebase';
 import Swal from 'sweetalert2';
 
 import { map } from 'rxjs/operators';
+import { User } from './user.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +17,8 @@ import { map } from 'rxjs/operators';
 export class AuthService {
 
   constructor(private afAuth: AngularFireAuth,
-              private router: Router) { }
+              private router: Router,
+              private afDB: AngularFirestore) { }
 
   initAuthListener() {
     this.afAuth.authState.subscribe( (fbUser: firebase.User) => {
@@ -26,7 +30,16 @@ export class AuthService {
     this.afAuth.auth
         .createUserWithEmailAndPassword(email, password)
         .then( resp => {
-          this.router.navigate(['/']);
+          const user: User = {
+            uid: resp.user.uid,
+            name: nombre,
+            email: resp.user.email
+          };
+          this.afDB.doc(`${ user.uid }/usuario`)
+              .set( user )
+              .then( ( ) => {
+                this.router.navigate(['/']);
+              });
         })
         .catch( error => {
           Swal('Error en el registrandote', error.message, 'error');
