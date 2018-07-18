@@ -5,6 +5,6 @@ import { DetalleComponent } from '../ingreso-egreso/detalle/detalle.component';
 
 export const dashboardRoutes: Routes = [
     { path: '', component: EstadisticaComponent },
-    { path: 'inEx', component: IngresoEgresoComponent },
-    { path: 'detail', component: DetalleComponent }
+    { path: 'ingex', component: IngresoEgresoComponent },
+    { path: 'detalle', component: DetalleComponent }
 ];
