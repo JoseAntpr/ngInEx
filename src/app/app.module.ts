@@ -6,6 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from '../environments/environment';
 // Modulos
 import { AppRoutingModule } from './app-routing.module';
 
@@ -19,6 +21,7 @@ import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+
 
 
 @NgModule({
@@ -38,7 +41,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AngularFireModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule
   ],
