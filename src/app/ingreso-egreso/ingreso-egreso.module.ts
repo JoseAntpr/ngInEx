@@ -19,12 +19,16 @@ import { ChartsModule } from 'ng2-charts';
 // Modulos personalizados
 import { SharedModule } from '../shared/shared.module';
 
+// Routes
+import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
+
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
     ChartsModule,
+    DashboardRoutingModule
   ],
   declarations: [
     DashboardComponent,
