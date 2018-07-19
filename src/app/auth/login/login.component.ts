@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   login( data: any ) {
-    console.log(data);
     this.authService.login( data.email, data.password );
   }
 
