@@ -22,13 +22,18 @@ import { SharedModule } from '../shared/shared.module';
 // Routes
 import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 
+// NGRX
+import { StoreModule } from '@ngrx/store';
+import { ingresoEgresoReducer } from './ingreso-egreso.reducer';
+
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
     ChartsModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    StoreModule.forFeature('ingresoEgreso', ingresoEgresoReducer)
   ],
   declarations: [
     DashboardComponent,

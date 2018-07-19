@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AppState } from '../../app.reducer';
 import { Store } from '@ngrx/store';
-import { Subscription } from '../../../../node_modules/rxjs';
+import { Subscription } from 'rxjs';
 import { IngresoEgreso } from '../ingreso-egreso.model';
+import { AppState } from '../ingreso-egreso.reducer';
 
 
 @Component({
