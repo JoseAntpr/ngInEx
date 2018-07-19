@@ -20,11 +20,6 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './app.reducer';
 
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

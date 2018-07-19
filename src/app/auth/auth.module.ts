@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// RouterModule
+import { RouterModule } from '@angular/router';
+
 // Forms
 import { FormsModule } from '@angular/forms';
 
@@ -13,6 +16,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 
 
+
+
 @NgModule({
     declarations: [
         LoginComponent,
@@ -22,6 +27,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
         CommonModule,
         FormsModule,
         AngularFireAuthModule,
+        RouterModule
     ]
 })
 export class AuthModule { }
