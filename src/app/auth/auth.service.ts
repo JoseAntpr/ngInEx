@@ -14,7 +14,7 @@ import { User } from './user.model';
 import { Store } from '@ngrx/store';
 import { AppState } from '../app.reducer';
 import { ActivateLoadingAction, DeactivateLoadingAction } from '../shared/ui-actions';
-import { SetUserAction } from './auth.actions';
+import { SetUserAction, UnsetUserAction } from './auth.actions';
 import { Subscription } from 'rxjs';
 
 
@@ -44,7 +44,6 @@ export class AuthService {
       } else {
         this.user = null;
         this.userSubscription.unsubscribe();
-        this.store.dispatch( new SetUserAction(null));
       }
     });
   }
@@ -90,6 +89,7 @@ export class AuthService {
   logout() {
     this.router.navigate(['/login']);
     this.afAuth.auth.signOut();
+    this.store.dispatch( new UnsetUserAction());
   }
 
   isAuthenticated() {

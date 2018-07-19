@@ -12,8 +12,6 @@ export class SetItemsAction implements Action {
 
 export class UnsetItemsAction implements Action {
     readonly type = UNSET_ITEMS;
-
-    constructor( public items: IngresoEgreso) {}
 }
 
 export type actions =   SetItemsAction    |
